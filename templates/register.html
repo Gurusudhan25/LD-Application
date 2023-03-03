@@ -1,49 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <title>Home</title>
-  </head>
-  <body>
-    <center>
-      <div class="credential-box-reg">
-        <h1 class="title">Register</h1>
-        <form class="form" method="post">
+{% extends "login.html" %} {% block title %}Signup{% endblock %} 
+{%block content1%}
+<nav class="navbar navbar-expand-sm bg-custom navbar-light">
+  <div class="container-fluid justify-content-end">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link fw-bolder fs-5 text-custom font-custom" href="/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+{%endblock%}
+{%block content2%}
+<div class="header">
+  <!--Content before waves-->
+  <div class="inner-header flex">
+    <div
+      class="container-fluid w-custom mt-custom pt-custom border border-dark pl-custom"
+    >
+     {% from "_formhelpers.html" import render_field %}
+     <form method="POST">
+        <div class="name mt-0">
+          <h1 class="heading-register">Register</h1>
+        </div>
+        <div class="form-group">
           <input
-            class="input-val"
-            type="text"
-            placeholder="Enter your name"
-          /><br />
-          <input
-            class="input-val"
             type="email"
-            placeholder="Enter email address"
+            class="form-control border-custom shadow mt-3"
+            id="email"
+            name="email"
+            placeholder="Enter email"
           />
+        </div>
+        <div class="form-group">
           <input
-            class="input-val"
-            type="password"
-            placeholder="Enter password"
-          /><input
-            class="input-val"
             type="text"
-            placeholder="Re-enter password"
+            class="form-control border-custom shadow mt-3"
+            id="name"
+            name="name"
+            placeholder="Enter name"
           />
-          <br />
-          <button type="button" class="btn btn-success">Register</button>
-          <a href="/login" class="reg"
-            ><button type="button" class="btn btn-danger">Login</button></a
-          >
-        </form>
-      </div>
-    </center>
-  </body>
-</html>
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control border-custom shadow mt-3"
+            id="password1"
+            name="password1"
+            placeholder="Enter password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control border-custom shadow mt-3"
+            id="password2"
+            name="password2"
+            placeholder="Confirm password"
+          />
+        </div>
+        <br />
+        <button type="submit" class="login-btn">Submit</button>
+      </form>
+
+    </div>
+  </div>
+  <!--Waves Container-->
+  <div>
+    <svg
+      class="waves mt-5"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28"
+      preserveAspectRatio="none"
+      shape-rendering="auto"
+    >
+      <defs>
+        <path
+          id="gentle-wave"
+          d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+        />
+      </defs>
+      <g class="parallax">
+        <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="0"
+          fill="rgba(255,255,255,0.7"
+        />
+        <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="3"
+          fill="rgba(255,255,255,0.5)"
+        />
+        <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="5"
+          fill="rgba(255,255,255,0.3)"
+        />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+  </div>
+  <!--Waves end-->
+</div>
+{% endblock %}
+
+
+<!--  -->
