@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Page</title>
+</head>
+
+<body>
+    <h1>Hi teacher</h1>
+
+    <div class="container">
+        {% for i in range(0, (studentData)| length )%}
+        <p>{{studentData[i]}}</p>
+        {%endfor%}
+    </div>
+</body>
+
+</html>

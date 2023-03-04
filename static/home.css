@@ -224,3 +224,7 @@ p {
     height: 50px;
     background: black;
 }
+
+a:hover {
+    color: blue;
+}
