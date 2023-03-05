@@ -1,0 +1,42 @@
+{% extends "teacher.html" %} {% block title%} Students {% endblock%}
+{%block dataBlock %}
+<nav>
+    <div id="mySidenav" class="sidenav">
+        <div>
+            <a href="/adminpage">Home</a>
+            <a href="/studentlist">Students</a>
+            <a href="#">Status</a>
+            <a href="#">Profile</a>
+        </div>
+        <div class="logout">
+            <a href="#">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container main-data">
+    <h1>Student's List</h1>
+    <div class="table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">E-Mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range (0 ,(studentData)|length )%}
+                <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{studentData[i]["name"]}}</td>
+                    <td>{{studentData[i]["class"]}}</td>
+                    <td>{{studentData[i]["email"]}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

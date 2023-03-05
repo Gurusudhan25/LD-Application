@@ -1,7 +1,6 @@
 from flask import Flask , render_template , redirect , url_for , request 
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
-import flask
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/ldApp"
@@ -27,11 +26,12 @@ def register():
     if (request.method == "POST"):
         name = request.form['name']
         email =  request.form['email']
+        standard =  request.form['class']
         password = request.form['password1']
         re_password = request.form['password2']
         if(password == re_password):
             hashPassword1 = bcrypt.generate_password_hash(password)
-            mongo.db.students.insert_one({"name":name , "password" : hashPassword1 , "email":email})
+            mongo.db.students.insert_one({"name":name , "password" : hashPassword1 , "email":email ,  "class":standard} )
             return redirect('login')
     return render_template('register.html')
 
@@ -53,10 +53,25 @@ def teacherLogin():
 
 @app.route('/adminpage')
 def adminHome():
+    adminName  = mongo.db.admin.find_one({"admin":"true"})
+    return render_template('teacher.html' , adminName =  adminName["name"])
+
+
+@app.route("/studentsData")
+def availStudents():
     studentList = []
     for i in mongo.db.students.find():
         studentList.append(i["name"])
-    return render_template('teacher.html'  ,studentData = studentList)
+    length =  str(len(studentList))
+    return length
+
+
+@app.route("/studentlist")
+def listData():
+    studentList = []
+    for i in mongo.db.students.find():
+        studentList.append(i)
+    return render_template('student.html',studentData = studentList )
 
 if __name__=="__main__":
     app.run(debug=True , port=8000)
