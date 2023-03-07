@@ -1,19 +1,9 @@
-{% extends "teacher.html" %} {% block title%} Students {% endblock%}
+{% extends "teacher.html" %}
+{%block scripts%}
+<script src="{{ url_for('static', filename = 'Javascript/new.js') }}"></script>
+{%endblock%}
+{% block title%} Students {% endblock%}
 {%block dataBlock %}
-<nav>
-    <div id="mySidenav" class="sidenav">
-        <div>
-            <a href="/adminpage">Home</a>
-            <a href="/studentlist">Students</a>
-            <a href="#">Status</a>
-            <a href="#">Profile</a>
-        </div>
-        <div class="logout">
-            <a href="#">Logout</a>
-        </div>
-    </div>
-</nav>
-
 <div class="container main-data">
     <h1>Student's List</h1>
     <div class="table">

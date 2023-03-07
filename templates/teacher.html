@@ -6,37 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Page</title>
+    {%block scripts%}
     <script src="{{ url_for('static', filename = 'Javascript/dialog.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {%endblock%}
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/admin.css') }}">
-</head>
-{%block dataBlock%}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/animation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/form.css') }}">
 
-<body onload="load()">
+
+</head>
+
+
+<body>
     <!-- Side nav -->
     <nav>
         <div id="mySidenav" class="sidenav">
             <div>
                 <a href="/adminpage">Home</a>
                 <a href="/studentlist">Students</a>
-                <a href="#">Status</a>
-                <a href="#">Profile</a>
+                <a href="/addstudent">Student +</a>
+                <a href="#">LD</a>
+                <a href="#">Non-LD</a>
             </div>
             <div class="logout">
-                <a href="#">Logout</a>
+                <a href="/login">Logout</a>
             </div>
         </div>
     </nav>
+    {%block dataBlock%}
 
     <div class="container w-100">
 
         <div class="container  main-data">
             <h1>Hi {{adminName}}</h1>
-            <div class="container w-100">
+            <div class="container w-100" id="counter">
                 <div class="row">
                     <div class=" count-data card col-md-6 mt-5 mr-5 mb-5">
                         <h1 id='0101' class="fs-2 text-light">0</h1>
@@ -53,10 +62,22 @@
                 </div>
             </div>
         </div>
-
     </div>
-
+    <div class="animation-box container">
+    </div>
+    <div class="add-data container row">
+        <div class="card col-md-6  buttonData">
+            <button class="btn btn-secondary w-50">ADD STUDENT</button>
+        </div>
+        <div class="card col-md-6  buttonData">
+            <button class="btn btn-secondary w-50">LD STUDENT'S</button>
+        </div>
+        <div class="card col-md-6  buttonData">
+            <button class="btn btn-secondary w-50">NON-LD STUDENT'S</button>
+        </div>
+    </div>
+    {%endblock%}
 </body>
-{%endblock%}
+
 
 </html>

@@ -15,14 +15,17 @@ function animate(obj, initVal, lastVal, duration) {
     window.requestAnimationFrame(step);
 }
 
-async function load() {
-    async function getData() {
-        let students = await fetch("/studentsData");
-        let data = await students.json();
-        return data;
-    }
-    let students = await getData();
-    animate(document.getElementById("0101"), 0, students, 1000);
-    animate(document.getElementById("0102"), 0, 63, 7000);
-    animate(document.getElementById("0103"), 0, 37, 7000);
+async function getData() {
+    let students = await fetch("/studentsData");
+    let data = await students.json();
+    return data;
 }
+
+async function just() {
+    let students = await getData();
+    // const obj = document.getElementById("counter");
+    animate(document.getElementById("0101"), 0, students, 1000);
+    animate(document.getElementById("0102"), 0, 263, 7000);
+    animate(document.getElementById("0103"), 0, 337, 7000);
+}
+just();
