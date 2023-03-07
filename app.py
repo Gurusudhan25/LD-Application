@@ -73,8 +73,20 @@ def listData():
         studentList.append(i)
     return render_template('student.html',studentData = studentList )
 
+
+@app.route('/addstudent' , methods=['GET', 'POST'])
+def addStudent():
+    if (request.method == "POST"):
+            name = request.form['name']
+            email =  request.form['email']
+            standard =  request.form['class']
+            password = request.form['password1']
+            print(name, email, standard, password)
+    
+    return render_template('addstudent.html')
+
 if __name__=="__main__":
-    app.run(debug=True , port=8000)
+    app.run(debug=True , port=4200)
 
 
 

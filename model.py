@@ -19,22 +19,22 @@ import warnings
 from sklearn.preprocessing import LabelEncoder
 warnings.filterwarnings('ignore')
 
-url = "https://raw.githubusercontent.com/monicarevuru/minor/master/sld.csv"
+url = "data.csv"
 
 df=pd.read_csv(url)
 
-df.head()
+print(df.head())
+print('')
+print(df.shape)
 
-df.shape
-
-df.columns
+print(df.columns)
 
 df=df.drop(['MRD_no'],axis=1)
 
 df = df.dropna(axis=1)
-print(df.isna().sum())
+# print(df.isna().sum())
 
-df['LD'].value_counts()
+print(df['LD'].value_counts())
 
 le = LabelEncoder()
 df_cols=['Reading', 'Writing','Maths','Attention' ,'Hyperactive' ,'Visual Memory','Impulsive','Auditory Discrimination','Auditory Memory','Visual Discrimination','processing speed']
@@ -44,10 +44,9 @@ for col in df_cols:
    le.fit(df[col])
    df[col] = le.transform(df[col])
 
-df.head()
+print(df.head())
 
-plt.figure(figsize=(15, 8))
-sns.heatmap(df.corr(),cmap='coolwarm', annot=True)
+
 
 features = df[['Reading', 'Writing','Maths','Attention' ,'Hyperactive' ,'Impulsive','Auditory Discrimination','Visual Discrimination']]
 target = df['LD']
@@ -56,7 +55,7 @@ acc = []
 model = []
 
 from sklearn.model_selection import train_test_split
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(features,target,test_size = 0.2,random_state =2)
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(features,target,test_size = 0.2, random_state =2)
 
 """**Navie bayes**"""
 
