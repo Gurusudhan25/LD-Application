@@ -20,9 +20,9 @@
                 {% for i in range (0 ,(studentData)|length )%}
                 <tr>
                     <th scope="row">{{i+1}}</th>
-                    <td>{{studentData[i]["name"]}}</td>
-                    <td>{{studentData[i]["class"]}}</td>
-                    <td>{{studentData[i]["email"]}}</td>
+                    <td>{{ studentData[i]["name"] }}</td>
+                    <td>{{ studentData[i]["class"] }}</td>
+                    <td>{{ studentData[i]["email"] }}</td>
                 </tr>
                 {%endfor%}
             </tbody>

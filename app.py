@@ -85,8 +85,16 @@ def addStudent():
     
     return render_template('addstudent.html')
 
+@app.route('/ld')
+def ld():
+    return render_template('LD.html')
+
+@app.route('/non-ld')
+def non_ld():
+    return render_template('Non-LD.html')
+
 if __name__=="__main__":
-    app.run(debug=True , port=4200)
+    app.run(debug=True , port=5000)
 
 
 
