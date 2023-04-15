@@ -92,7 +92,8 @@ def addStudent():
             name = request.form['name']
             email = request.form['email']
             standard = request.form['class']
-            password = request.form['password1']
+            password = request.form['password']
+            hashPassword = bcrypt.generate_password_hash(password)
             q1 = request.form['question1']
             q2 = request.form['question2']
             q3 = request.form['question3']
@@ -111,7 +112,7 @@ def addStudent():
             if (prediction[0] == 'yes'):
                 mongo.db.students.insert_one(
                     {"name": name,
-                     "password": password,
+                     "password": hashPassword,
                      "email": email,
                      "class": standard,
                      'student_details': {"Does the Student Reads Well?: ": q1,
@@ -121,8 +122,8 @@ def addStudent():
                                          "is Student Hyperactive?:": q5,
                                          "is Student Impulsive?: ": q6,
                                          "Does Student can discriminate voice?: ": q7,
-                                         "Does Student can discriminate visual?: ": q8},
-                     'ld': True})
+                                         "Does Student can discriminate visuals?: ": q8},
+                     'ld': 'yes'})
             else:
                 mongo.db.students.insert_one(
                     {"name": name,
@@ -136,8 +137,8 @@ def addStudent():
                                          "is Student Hyperactive?:": q5,
                                          "is Student Impulsive?: ": q6,
                                          "Does Student can discriminate voice?: ": q7,
-                                         "Does Student can discriminate visual?: ": q8},
-                     'ld': False})
+                                         "Does Student can discriminate visuals?: ": q8},
+                     'ld': 'no'})
 
             flash("Successfully added student!", "success")
         except BadRequestKeyError:
@@ -148,12 +149,19 @@ def addStudent():
 
 @app.route('/ld')
 def ld():
-    return render_template('LD.html', ld_active="class= active")
+    ld = []
+    for i in mongo.db.students.find({'ld': 'yes'}):
+        ld.append(i)
+    return render_template('LD.html', ld_active="class= active", studentData=ld)
 
 
 @app.route('/non-ld')
 def non_ld():
-    return render_template('Non-LD.html', non_ld_active="class= active")
+    non_ld = []
+    for i in mongo.db.students.find({'ld': 'no'}):
+        non_ld.append(i)
+    print(ld)
+    return render_template('Non-LD.html', non_ld_active="class= active", studentData=non_ld)
 
 
 if __name__ == "__main__":

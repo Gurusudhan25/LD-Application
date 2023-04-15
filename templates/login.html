@@ -17,10 +17,10 @@
       <div class="container-fluid nav justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active fw-bolder fs-5 text-custom font-custom" href="/register">Sign-up</a>
+            <a class="nav-link m-2 fw-bolder fs-5 text-custom font-custom" href="/register">Sign-up</a>
           </li>
           <li>
-            <a class="nav-link active fw-bolder fs-5 text-custom font-custom" href="/teacher">Admin</a>
+            <a class="nav-link m-2 fw-bolder fs-5 text-custom font-custom" href="/teacher">Admin</a>
           </li>
         </ul>
       </div>
@@ -32,16 +32,18 @@
     <div class="header">
       <!--Content before waves-->
       <div class="inner-header flex">
-        <div class="container-fluid w-custom mt-custom border pl-custom shadow-lg">
+        <div class="container-fluid w-custom mt-custom border pl-custom shadow-lg" >
           <form method="POST">
             <div class="name">
               <h1 class="heading-register">Login</h1>
             </div>
             <div class="form-group ">
-              <input type="email" class="form-control active  border-custom shadow  mt-3" id="email" name="email"
+              <label for="name" class="ml-2">Name:</label>
+              <input type="email" class="form-control  border-custom shadow  mt-3" id="email" name="email"
                 placeholder="Enter email" />
             </div>
             <div class="form-group">
+              <label for="password" class="ml-2">Password:</label>
               <input type="password" class="form-control border-custom shadow mt-3" id="password" name="password"
                 placeholder="Enter password" />
             </div>

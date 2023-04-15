@@ -1,19 +1,17 @@
-{% extends "teacher.html" %}
-{%block scripts%}
+{% extends "teacher.html" %} {%block scripts%}
 <script src="{{ url_for('static', filename = 'Javascript/new.js') }}"></script>
-{%endblock%}
-{% block title%} Students {% endblock%}
-{%block dataBlock %}
+{%endblock%} {% block title%} Students {% endblock%} {%block dataBlock %}
 <div class="container main-data">
     <h1 class="student-header">Student's List</h1>
     <div class="table student-table">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">S.No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Class</th>
                     <th scope="col">E-Mail</th>
+                    <th scope="col">Whether Ld?</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +21,7 @@
                     <td>{{ studentData[i]["name"] }}</td>
                     <td>{{ studentData[i]["class"] }}</td>
                     <td>{{ studentData[i]["email"] }}</td>
+                    <td>{{ studentData[i]["ld"] }}</td>
                 </tr>
                 {%endfor%}
             </tbody>

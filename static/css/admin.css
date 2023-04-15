@@ -10,7 +10,7 @@
     transition: 0.5s;
 }
 .logout {
-    padding-top: 500px;
+    padding-top: 550px;
 }
 
 .sidenav a {
@@ -34,6 +34,7 @@
     background-color: black;
     color: white;
     transition: transform 0.2s;
+    border-radius: 0.5rem;
 }
 .count-data h1 {
     padding-top: 10px;
@@ -46,13 +47,13 @@
 
 .main-data {
     padding: 0;
-    margin-top: 20px;
+    margin-top: 3rem;
     max-height: 900px;
     overflow: hidden;
 }
 
 .add-data {
-    margin-top: 15px;
+    margin-top: 2rem;
     margin-left: 240px;
 }
 .buttonData {
@@ -91,6 +92,7 @@
 
 .student-table {
     margin-left: 100px;
+    margin-top: 50px;
     max-height: 800px;
     overflow-y: auto;
 }

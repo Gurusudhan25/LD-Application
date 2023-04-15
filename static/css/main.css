@@ -38,10 +38,18 @@ h1 {
 input {
     font-family: "Poppins-Medium";
 }
+tr{
+    font-family: 'Poppins-Medium';
+}
 
 .active {
     color: black !important;
     background-color: white !important;
     width: 220px;
     border-radius: 0 1rem 1rem 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
