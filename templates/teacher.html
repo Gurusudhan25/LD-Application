@@ -28,11 +28,11 @@
     <nav>
         <div id="mySidenav" class="sidenav">
             <div>
-                <a href="/adminpage">Home</a>
-                <a href="/studentlist">Students</a>
-                <a href="/addstudent">Student +</a>
-                <a href="/ld">LD</a>
-                <a href="/non-ld">Non-LD</a>
+                <a href="/adminpage" {{home_active}}>Home</a>
+                <a href="/studentlist" {{studentList_active}}>Students</a>
+                <a href="/addstudent" {{addPage_active}}>Student +</a>
+                <a href="/ld" {{ld_active}}>LD</a>
+                <a href="/non-ld" {{non_ld_active}}>Non-LD</a>
             </div>
             <div class="logout">
                 <a href="/login">Logout</a>
@@ -49,15 +49,15 @@
                 <div class="row">
                     <div class=" count-data card col-md-6 mt-5 mr-5 mb-5">
                         <h1 id='0101' class="fs-2 text-light">0</h1>
-                        <h1 class="text-light">Total Students</h1>
+                        <h1 class="text-light fs-2">Total Students</h1>
                     </div>
                     <div class="count-data card col-md-6 m-5">
                         <h1 id='0102' class="fs-2 text-light">0</h1>
-                        <h1 class="text-light">Assignments pending</h1>
+                        <h1 class="text-light fs-2">Assignments pending</h1>
                     </div>
                     <div class="count-data card col-md-6 mt-5 mb-5 ml-0">
                         <h1 id='0103' class="fs-2 text-light">0</h1>
-                        <h1 class="text-light">Assignments Completed</h1>
+                        <h1 class="text-light fs-2">Assignments Completed</h1>
                     </div>
                 </div>
             </div>

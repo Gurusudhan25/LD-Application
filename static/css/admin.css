@@ -1,6 +1,6 @@
 .sidenav {
     height: 100%;
-    width: 200px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -14,11 +14,13 @@
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 3.5rem;
     text-decoration: none;
     font-size: 25px;
+    font-family: "Poppins-Black";
     color: #818181;
     display: block;
+    justify-content: end;
     transition: 0.3s;
 }
 
@@ -35,6 +37,7 @@
 }
 .count-data h1 {
     padding-top: 10px;
+    font-family: "Poppins-Regular";
 }
 
 .count-data:hover {
@@ -44,6 +47,8 @@
 .main-data {
     padding: 0;
     margin-top: 20px;
+    max-height: 900px;
+    overflow: hidden;
 }
 
 .add-data {
@@ -61,4 +66,34 @@
 .const {
     margin: 200px;
     padding-left: 500px;
+}
+
+.alert-box {
+    position: absolute;
+    top: 0;
+    width: calc(100vw - 250px);
+    border-radius: 0 !important;
+    margin-left: 250px;
+}
+.alert-box > p {
+    margin: 0 !important;
+    font-family: "Poppins-Medium";
+}
+
+.heading-register {
+    margin-left: 1rem;
+    font-family: "Poppins-Black";
+}
+
+.w-100 {
+    width: 98% !important;
+}
+
+.student-table {
+    margin-left: 100px;
+    max-height: 800px;
+    overflow-y: auto;
+}
+.student-header {
+    margin-left: 50px;
 }
