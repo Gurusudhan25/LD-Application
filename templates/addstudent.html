@@ -1,109 +1,127 @@
 {% extends "teacher.html" %}
 {%block scripts%}
+<script src="{{ url_for('static', filename = 'Javascript/alert.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 {%endblock%}
 {%block dataBlock %}
-<div class="formData container w-50 ">
-    <form method="POST">
-        <div class="name mt-0">
-            <h1 class="heading-register">Add New Student</h1>
-        </div>
-        <div class="form-group m-2">
-            <input type="email" class="form-control shadow mt-3" id="email" name="email" placeholder="Enter email" />
-            <input type="text" class="form-control shadow mt-3" id="name" name="name" placeholder="Enter name" />
-            <input type="text" class="form-control shadow mt-3" id="name" name="class" placeholder="Enter Class" />
-            <input type="password" class="form-control shadow mt-3" id="password1" name="password1"
-                placeholder="Enter password" />
-        </div>
-        <div class="form-group">
-            <label>Does the Student Reads Well?:</label>
-            <div class="form-group form-check-inline">
-                <input class="form-check-input" type="radio" name="question1" id="question1Yes" value="yes">
-                <label class="form-check-label" for="question1Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question1" id="question1No" value="no">
-                <label class="form-check-label" for="question1No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Does the Student Writes Well?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question2" id="question2Yes" value="yes">
-                <label class="form-check-label" for="question2Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question2" id="question2No" value="no">
-                <label class="form-check-label" for="question2No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Does the Student Calculates Well?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question3" id="question3Yes" value="yes">
-                <label class="form-check-label" for="question3Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question3" id="question3No" value="no">
-                <label class="form-check-label" for="question3No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Does Student pays Attention?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question4" id="question4Yes" value="yes">
-                <label class="form-check-label" for="question4Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question4" id="question4No" value="no">
-                <label class="form-check-label" for="question4No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>is Student Hyperactive?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question5" id="question5Yes" value="yes">
-                <label class="form-check-label" for="question5Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input " type="radio" name="question5" id="question5No" value="no">
-                <label class="form-check-label" for="question5No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>is Student Impulsive?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question6" id="question6Yes" value="yes">
-                <label class="form-check-label" for="question6Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question6" id="question6No" value="no">
-                <label class="form-check-label" for="question6No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Does Student can discriminate voice?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question7" id="question7Yes" value="yes">
-                <label class="form-check-label" for="question7Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question7" id="question7No" value="no">
-                <label class="form-check-label" for="question7No">No</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Does Student can discriminate visual?:</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question8" id="question8Yes" value="yes">
-                <label class="form-check-label" for="question8Yes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="question8" id="question5No" value="no">
-                <label class="form-check-label" for="question8No">No</label>
-            </div>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="add-student">
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}} alert-box" role="alert" id="alert">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="formData container w-50 ">
+        <form action="#" method="POST">
+            <div class="name mt-0">
+                <h1 class="heading-register">Add New Student</h1>
+            </div>
+            <div class="form-group m-2">
+                <input type="email" class="form-control shadow mt-3" id="email" name="email"
+                    placeholder="Enter email" />
+                <input type="text" class="form-control shadow mt-3" id="name" name="name" placeholder="Enter name" />
+                <input type="text" class="form-control shadow mt-3" id="class" name="class" placeholder="Enter Class" />
+                <input type="password" class="form-control shadow mt-3" id="password" name="password"
+                    placeholder="Enter password" />
+            </div>
+            <div class="form-group m-2 question-box row">
+                <label class="col-6">Does the Student Reads Well?: </label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question1" id="question1Yes" value="yes">
+                    <label class="form-check-label" for="question2Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question1" id="question1No" value="no">
+                    <label class="form-check-label" for="question1No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">Does the Student Writes Well?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question2" id="question2Yes" value="yes">
+                    <label class="form-check-label" for="question2Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question2" id="question2No" value="no">
+                    <label class="form-check-label" for="question2No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">Does the Student Calculates Well?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question3" id="question3Yes" value="yes">
+                    <label class="form-check-label" for="question3Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question3" id="question3No" value="no">
+                    <label class="form-check-label" for="question3No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">Does Student pays Attention?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question4" id="question4Yes" value="yes">
+                    <label class="form-check-label" for="question4Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question4" id="question4No" value="no">
+                    <label class="form-check-label" for="question4No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">is Student Hyperactive?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question5" id="question5Yes" value="yes">
+                    <label class="form-check-label" for="question5Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input " type="radio" name="question5" id="question5No" value="no">
+                    <label class="form-check-label" for="question5No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">is Student Impulsive?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question6" id="question6Yes" value="yes">
+                    <label class="form-check-label" for="question6Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question6" id="question6No" value="no">
+                    <label class="form-check-label" for="question6No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">Discriminating voice?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question7" id="question7Yes" value="yes">
+                    <label class="form-check-label" for="question7Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question7" id="question7No" value="no">
+                    <label class="form-check-label" for="question7No">No</label>
+                </div>
+            </div>
+            <div class="form-group question-box m-2 row">
+                <label class="col-6">Discriminating visual?:</label>
+                <div class="form-check form-check-inline col-sm">
+                    <input class="form-check-input" type="radio" name="question8" id="question8Yes" value="yes">
+                    <label class="form-check-label" for="question8Yes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline col-sm-2">
+                    <input class="form-check-input" type="radio" name="question8" id="question8No" value="no">
+                    <label class="form-check-label" for="question8No">No</label>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary w-100 m-2 ">Submit</button>
+        </form>
+    </div>
 </div>
 {%endblock%}

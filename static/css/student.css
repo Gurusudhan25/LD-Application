@@ -1,0 +1,56 @@
+@import url("./main.css");
+
+.student-detail-box {
+    margin-left: 300px;
+    /* margin-top: 100px; */
+    padding-top: 100px;
+    height: fit-content;
+}
+.welcome-student {
+    font-family: "Poppins-Black";
+}
+
+.quote-box {
+    font-family: "Poppins-Medium";
+    margin-left: 100px;
+    margin-top: 50px;
+    width: fit-content;
+    background-color: lightgray;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+}
+.quote-box .auth-name {
+    margin-left: 250px;
+    margin-top: 1rem !important;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem !important;
+    font-family: "Poppins-Medium";
+}
+
+.progress-detail .progress {
+    font-family: "Poppins-Medium";
+    font-size: 1rem;
+    margin: 1rem 2rem !important;
+    background-color: white;
+    height: 30px;
+}
+
+.better {
+    font-size: 2rem;
+}
+
+.logout {
+    float: right;
+    margin-right: 3rem;
+    padding-top: 50px;
+    text-decoration: none;
+    font-family: "Poppins-Black";
+    font-size: 1rem;
+}

@@ -1,3 +1,22 @@
+@import url("../css/main.css");
+
 .formData {
-    margin-top: 20px;
+    margin-top: 100px;
+}
+.question-box {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    width: 98%;
+    padding: 0.375rem 0.75rem;
+    background-color: #fff;
+}
+.question-box > label {
+    color: black;
+    font-family: "Poppins-Medium";
+    font-size: 14px;
+}
+.form-check > label {
+    font-family: "Poppins-Medium";
+    font-size: 14px;
 }

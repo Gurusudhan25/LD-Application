@@ -1,0 +1,55 @@
+@font-face {
+    font-family: "Poppins-Black";
+    src: url("../font/Poppins-Black.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-ExtraLightItalic";
+    src: url("../font/Poppins-ExtraLightItalic.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Light";
+    src: url("../font/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../font/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("../font/Poppins-Regular.ttf");
+}
+
+button {
+    font-family: "Poppins-Medium" !important;
+}
+button :disabled {
+    background-color: lightgray;
+    color: black;
+}
+
+h1 {
+    font-family: "Poppins-Black" !important;
+}
+
+input {
+    font-family: "Poppins-Medium";
+}
+tr{
+    font-family: 'Poppins-Medium';
+}
+
+.active {
+    color: black !important;
+    background-color: white !important;
+    width: 220px;
+    border-radius: 0 1rem 1rem 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
