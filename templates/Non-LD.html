@@ -4,27 +4,30 @@
 {%block dataBlock %}
 <div class="container main-data">
     <h1 class="student-header">Non-Student's List</h1>
-<div class="table student-table">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">S.No</th>
-                <th scope="col">Name</th>
-                <th scope="col">Class</th>
-                <th scope="col">E-Mail</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in range (0 ,(studentData)|length )%}
-            <tr>
-                <th scope="row">{{i+1}}</th>
-                <td>{{ studentData[i]["name"] }}</td>
-                <td>{{ studentData[i]["class"] }}</td>
-                <td>{{ studentData[i]["email"] }}</td>
-            </tr>
-            {%endfor%}
-        </tbody>
-    </table>
-</div>
+    <div class="table student-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">E-Mail</th>
+                    <th scope="col">Whether Ld?</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range (0 ,(studentData)|length )%}
+                <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{ studentData[i]["name"] }}</td>
+                    <td>{{ studentData[i]["class"] }}</td>
+                    <td>{{ studentData[i]["email"] }}</td>
+                    <td>{{ studentData[i]["ld"] }}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
 </div>
 {%endblock%}
