@@ -28,9 +28,12 @@ def login():
         email = request.form['email']
         password = request.form['password']
         userData = mongo.db.students.find_one({"email": email})
-        if (bcrypt.check_password_hash(userData["password"], password)):
-            session['user'] = userData
-            return redirect('home')
+        try:
+            if (bcrypt.check_password_hash(userData["password"], password)):
+                session['user'] = userData
+                return redirect('home')
+        except :
+            print('Invalid Password')
     return render_template('login.html')
 
 

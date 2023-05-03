@@ -7,23 +7,17 @@ Original file is located at
     https://colab.research.google.com/drive/1KViRWH6qkJyw__Xfv05LIMzPY1-h0LUd
 """
 
-from __future__ import print_function
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn import metrics
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler , LabelEncoder
 from sklearn.svm import SVC
 from sklearn.model_selection import cross_val_score
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import classification_report
-from sklearn import metrics
-from sklearn import tree
-import warnings
-from sklearn.preprocessing import LabelEncoder
-warnings.filterwarnings('ignore')
 
 url = "data.csv"
 
